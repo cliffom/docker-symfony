@@ -6,8 +6,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | tee /etc/apt/sources.list.d/newrelic.list
 RUN wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
-RUN echo newrelic-php5 newrelic-php5/application-name string "${NEW_RELIC_APP_NAME}" | debconf-set-selections
-RUN echo newrelic-php5 newrelic-php5/license-key string "${NEW_RELIC_LICENSE}" | debconf-set-selections
 RUN apt-get update && apt-get install -y newrelic-php5 && apt-get clean
 
 ADD symfony.ini /etc/php5/fpm/conf.d/

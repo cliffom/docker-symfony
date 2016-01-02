@@ -15,4 +15,4 @@ WORKDIR /var/www/symfony/web
 
 WORKDIR /var/www/symfony
 ENV SYMFONY_ENV=prod
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --no-interaction
