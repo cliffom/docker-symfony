@@ -1,0 +1,19 @@
+app:
+    build: ./app
+    volumes:
+        - /var/www/symfony
+php:
+    build: ./php
+    environment:
+        NEW_RELIC_APP_NAME:
+        NEW_RELIC_LICENSE:
+    volumes_from:
+        - app
+nginx:
+    build: ./nginx
+    ports:
+        - 80:80
+    links:
+        - php
+    volumes_from:
+        - app
