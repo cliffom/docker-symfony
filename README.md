@@ -1,1 +1,1 @@
-# Production containers for api.hte.com
+# Production containers for a Symfony application
